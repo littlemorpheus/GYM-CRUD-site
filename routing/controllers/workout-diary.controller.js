@@ -1,5 +1,5 @@
 const WO_Diary = require('../models/workout_diary.model');
-const Control = require('./controller');
+const Control = require('./index.controller');
 
 module.exports = class extends Control {
     constructor() {

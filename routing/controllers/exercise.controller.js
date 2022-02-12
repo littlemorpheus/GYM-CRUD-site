@@ -1,5 +1,5 @@
 const Exercise = require('../models/exercise.model')
-const Control = require('./controller');
+const Control = require('./index.controller');
 
 module.exports = class extends Control {
     constructor() {

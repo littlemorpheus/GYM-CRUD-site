@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const workoutdiarySchema = mongoose.Schema( {
     //Key and Sub Parts
-    workout_plan: { type: mongoose.Types.ObjectId, required: true },
+    workout_plan: { type: mongoose.Types.ObjectId, ref:'Workout', required: true },
     completed: [ {
-        workout_section: {type: mongoose.Types.ObjectId},
+        workout_section: {type: mongoose.Types.ObjectId, ref:'Workout Child'},
         completed_exercises: [{
-            exercise: { type:mongoose.Types.ObjectId },
+            exercise: { type:mongoose.Types.ObjectId, ref:'Exercise' },
             set_number: { type:Number },
             reps: { type:Number }
         }]

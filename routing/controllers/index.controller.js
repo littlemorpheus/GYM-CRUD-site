@@ -1,8 +1,11 @@
+const mongoose = require('mongoose');
 
 module.exports = class {
-    constructor (name, model) {
+    constructor (name, model, model1=null, model2=null) {
         this.element_name = name;
         this._MODEL = model;
+        this._MODEL1 = model1;
+        this._MODEL2 = model2;
         console.log(this.element_name)
     };
 
