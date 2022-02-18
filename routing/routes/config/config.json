@@ -1,0 +1,13 @@
+{
+    "development": {
+        "HOSTNAME": "localhost",
+        "PORT": 4242,
+        "MONGODB_URI": "mongodb+srv://cluster0.kco1g.mongodb.net/FRESHERS_EVENTS?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority"
+    },
+
+    "production": {
+        "HOSTNAME": "Dosent matter rn",
+        "PORT": 80,
+        "MONGODB_URI": "Dosent matter rn"
+    }
+}

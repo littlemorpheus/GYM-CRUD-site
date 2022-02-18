@@ -21,7 +21,8 @@ module.exports = class extends Control {
             path: 'sections',
             model: 'Workout Child'
         }).exec(function(err, item) {
-            console.log(`Getting specfic ${element_name}`);
+            console.log(`Getting specfic ${element_name} 1`);
+            console.log("ITEM: " + item);
             res.json(item);
         })
     };
@@ -35,7 +36,8 @@ module.exports = class extends Control {
                 path: 'variations.$*'
             }
         }).exec(function(err, item) {
-            console.log(`Getting specfic ${element_name}`);
+            console.log(`Getting specfic ${element_name} 2`);
+            console.log("ITEM: " + item);
             res.json(item);
         })
     };
