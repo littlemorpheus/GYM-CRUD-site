@@ -5,7 +5,7 @@ const workoutdiarySchema = mongoose.Schema( {
     workout_plan: { type: mongoose.Types.ObjectId, ref:'Workout', required: true },
     completed: [ {
         workout_section: {type: mongoose.Types.ObjectId, ref:'Workout Child'},
-        completed_exercises: [{
+        completed_sets: [{
             exercise: { type:mongoose.Types.ObjectId, ref:'Exercise' },
             set_number: { type:Number },
             reps: { type:Number }
@@ -15,6 +15,7 @@ const workoutdiarySchema = mongoose.Schema( {
     notes: { type:String },
 
     //Record Keeping
+    /* Should add a day field, for records where did past midnight */
     date: {type: Date, default: Date.now()}
 });
 
