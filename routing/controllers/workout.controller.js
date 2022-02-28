@@ -1,3 +1,4 @@
+const { model } = require('mongoose');
 const Workout = require('../models/workout.model');
 const Control = require('./index.controller');
 
@@ -33,11 +34,15 @@ module.exports = class extends Control {
             //Solution for Array of elements
             path: 'sections',
             populate: {
-                path: 'variations.$*'
+                /* This is removing the attached Key */
+                path: 'variations.$*',
+                model: 'Exercise'
             }
         }).exec(function(err, item) {
             console.log(`Getting specfic ${element_name} 2`);
             console.log("ITEM: " + item);
+            console.log("Sections: " + item.sections);
+            console.log("Variations 0: " + item.sections[0].variations);
             res.json(item);
         })
     };

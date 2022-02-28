@@ -10,16 +10,16 @@ module.exports = class extends Control {
         let wo_child = new WO_CHILD({
             name: req.body.name,
             //--------------------------
-            level_one: req.body.level_one,
-            level_two: req.body.level_two,
-            level_three: req.body.level_three,
-            level_four: req.body.level_four,
-            gym_replecemant: req.body.gym_replecemant,
+            variations: req.body.variations,
             //-----------------------------------------
             overall_reps: req.body.overall_reps,
             minimum_reps: req.body.minimum_reps,
         });
         console.log(`Adding New Element`);
+        /* It seems by defualt the map schema wants ObjectID key to be _id */
+
+        console.log(wo_child.variations)
+        console.log(req.body.variations)
         //this.test_working()
         //super.test_working()
         /*(node:25884) UnhandledPromiseRejectionWarning: TypeError: (intermediate value).test_working is not a function*/

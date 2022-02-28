@@ -1,22 +1,24 @@
 const mongoose = require('mongoose');
 const exerciseSchema = require('../models/exercise.model').exerciseSchema
 
-const workoutchildSchema = mongoose.Schema( {
-    //Key and Sub Parts
-    name: { type: String, required: true },
+var varationSchema = new mongoose.Schema({
+    type: Map,
+    of: { type: String },
+})
 
-    variations: {
-        //Aribtary Keys
-        type: Map,
-        of: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
+const workoutchildSchema = mongoose.Schema( {
+    name: { 
+        type: String, 
+        required: [true, "Name is required"], 
+        unique: true 
     },
-    /*
-    level_one: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
-    level_two: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
-    level_three: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
-    level_four: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
-    gym_replecemant: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
-    */
+    variations: {
+        type: [{
+            type: [Map],
+            of: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
+        }],
+        required: [true, "Need some exercises"]
+    },
     overall_reps: { type: Number },
     minimum_reps: { type: Number },
 

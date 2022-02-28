@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const exerciseSchema = mongoose.Schema( {
     //Key and Sub Parts
-    name: { type: String, required: true },
+    name: { 
+        type: String, 
+        required: [true, 'Name Required'], 
+        unique: true 
+    },
     
     videos: [ { type: mongoose.Types.ObjectId, ref: 'Image' } ],
     images: [ { type: mongoose.Types.ObjectId, ref: 'Image' } ],

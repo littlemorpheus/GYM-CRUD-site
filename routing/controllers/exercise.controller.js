@@ -7,6 +7,7 @@ module.exports = class extends Control {
     }
 
     add = async (req, res, next) => {
+        console.log("Adding Exercise")
         let exercise = new Exercise({
             name: req.body.name,
             videos: req.body.videos,

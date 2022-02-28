@@ -24,7 +24,7 @@ module.exports = class {
         entry.save((err, doc) => {
             if (err) {
                 console.log(`Failed to add a ${this.element_name}\n` +err)
-                res.json({msg: `Failed to add ${this.element_name}\n` +err});
+                res.json({err: "Failed to make connection",})
             } else {
                 res.json({msg: `${this.element_name} added`})
             }
