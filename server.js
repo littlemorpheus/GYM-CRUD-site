@@ -27,12 +27,14 @@ app.use('/res', express.static(path.join(__dirname, "/res/")));
 app.use('/styles', express.static(path.join(__dirname, "/res/styles/")));
 app.use('/scripts', express.static(path.join(__dirname, "/res/scripts/")));
 app.use('/media', express.static(path.join(__dirname, "/res/media/")));
-//app.set('views', path.join(__dirname, "/res/","views"));
+app.use(express.static(path.join(__dirname, "/dist/")));
 
 /*                Requests                */
 //Note: Not sure on the best way to perform API calls so using the HTTP library
             /*      GET     */ 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
+    console.log("Being sent")
+    res.sendFile(path.join(__dirname, '/dist/index.html'));
 }); 
 
             /*      POST     */

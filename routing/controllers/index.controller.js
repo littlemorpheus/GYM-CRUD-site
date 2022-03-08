@@ -9,10 +9,6 @@ module.exports = class {
         console.log(this.element_name)
     };
 
-    test_working = function() {
-        console.log(`Working`);
-    };
-
     add_one = async (req, res, next, entry) => {
         /*
             Still some heavy confusion over extending functions

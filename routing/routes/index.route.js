@@ -14,8 +14,6 @@ const ctrl_wo_child = new CTRL_WO_CHILD;
 const ctrl_exercise = new CTRL_EXERCISE;
 
 /*    GET Requests    */
-ctrl_exercise.test_working()
-router.get('',)
 router.get('/exercise/:id', ctrl_exercise.get);
 router.get('/workout-child/:id', ctrl_wo_child.get);
 router.get('/workout-child/:id/1', ctrl_wo_child.get1);
