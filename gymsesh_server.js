@@ -1,7 +1,6 @@
 /*            Configuration            */
 require('./config/config');
 require('./config/db.config');
-require('./user_test')
 const hostname = process.env.HOSTNAME;
 const port = process.env.PORT;
 

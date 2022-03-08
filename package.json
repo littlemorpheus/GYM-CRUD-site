@@ -2,10 +2,10 @@
   "name": "gym-crud-app",
   "version": "1.0.0",
   "description": "A simple app to record your your progress in your gym workout, and what you are doing. This is a simple intial version of the app to demonstrate my abilities with a CRUD application.",
-  "main": "server.js",
+  "main": "gymsesh_server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon gymsesh_server.js"
   },
   "author": "littlemorphues",
   "license": "ISC",
