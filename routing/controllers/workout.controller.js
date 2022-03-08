@@ -35,7 +35,7 @@ module.exports = class extends Control {
             path: 'sections',
             populate: {
                 /* This is removing the attached Key */
-                path: 'variations.$*',
+                path: 'variations.value',
                 model: 'Exercise'
             }
         }).exec(function(err, item) {

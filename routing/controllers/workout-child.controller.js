@@ -36,10 +36,11 @@ module.exports = class extends Control {
         let element_name = this.element_name
         this._MODEL.findById({_id: req.params.id}).populate({
             //Solution for Array of elements
-            path: 'variations.$*',
+            path: 'variations.value',
             model: 'Exercise'
         }).exec(function(err, item) {
-            console.log(`Getting specfic ${element_name}`);
+            console.log(`Getting specfic ${element_name} 1`);
+            console.log(item)
             res.json(item);
         })
     };

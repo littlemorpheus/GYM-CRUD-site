@@ -2,8 +2,15 @@ const mongoose = require('mongoose');
 const exerciseSchema = require('../models/exercise.model').exerciseSchema
 
 var varationSchema = new mongoose.Schema({
-    type: Map,
-    of: { type: String },
+    key: { 
+        type: String, 
+        required: [true, "Variation key is required"] 
+    },
+    value: { 
+        type: mongoose.Types.ObjectId, 
+        required: [true, "Variation key is required"],
+        ref: 'Exercise' 
+    }
 })
 
 const workoutchildSchema = mongoose.Schema( {
@@ -13,10 +20,7 @@ const workoutchildSchema = mongoose.Schema( {
         unique: true 
     },
     variations: {
-        type: [{
-            type: [Map],
-            of: { type: mongoose.Types.ObjectId, ref: 'Exercise' },
-        }],
+        type: [varationSchema],
         required: [true, "Need some exercises"]
     },
     overall_reps: { type: Number },
