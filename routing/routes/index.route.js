@@ -28,17 +28,17 @@ router.get('/workouts', ctrl_wo.getAll)
 router.get('/workout-diaries', ctrl_wo_diary.getAll)
 
 /*    POST Requests    */
-router.post('/exercise', verifyAuth, ctrl_exercise.add);
-router.post('/workout-child', verifyAuth, ctrl_wo_child.add);
-router.post('/workout-diary', verifyAuth, ctrl_wo_diary.add);
-router.post('/workout', verifyAuth, ctrl_wo.add)
+router.post('/exercise', ctrl_exercise.add);
+router.post('/workout-child', ctrl_wo_child.add);
+router.post('/workout-diary', ctrl_wo_diary.add);
+router.post('/workout', ctrl_wo.add)
 //router.post('/img', ctrl_media.upload.single('file'), ctrl_media.addImage)
 
 
 /*    DELETE Requests    */
-router.delete('/exercises/: id', verifyAuth, ctrl_exercise.del);
-router.delete('/workout-children/:id', verifyAuth, ctrl_wo_child.del);
+router.delete('/exercise/:id', ctrl_exercise.del);
+router.delete('/workout-children/:id', ctrl_wo_child.del);
 //router.post('/img/:id', ctrl_media.delImage)
-router.delete('/workouts/:id', verifyAuth, ctrl_wo.del)
+router.delete('/workout/:id', ctrl_wo.del)
 
 module.exports = router;

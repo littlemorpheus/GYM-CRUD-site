@@ -45,7 +45,8 @@ module.exports = class {
     };
 
     del = (req, res, next) => {
-        this._MODEL.remove({_id: req.params.id}, function(err, result) {
+        console.log("Deletion")
+        this._MODEL.deleteOne({_id: req.params.id}, function(err, result) {
             if (err) {
                 res.json(err)
             } else {
