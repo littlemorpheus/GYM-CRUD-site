@@ -9,8 +9,11 @@ module.exports = class extends Control {
     add = async (req, res, next) => {
         let wo_diary = new WO_Diary({
             workout_plan: req.body.workout_plan,
-            completed: req.body.completed
+            sections: req.body.sections,
+            notes: req.body.notes,
+            //user_id: req.body.user_id
         });
+        console.log(wo_diary);
         this.add_one(req, res, next, wo_diary)
     }
 }

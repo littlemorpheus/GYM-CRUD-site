@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const exerciseSchema = mongoose.Schema( {
-    //Key and Sub Parts
     name: { 
         type: String, 
         required: [true, 'Name Required'], 

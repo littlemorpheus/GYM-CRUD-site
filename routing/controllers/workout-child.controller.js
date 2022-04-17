@@ -32,6 +32,38 @@ module.exports = class extends Control {
             //the error is that super.add isnt a function
     };
 
+    getByFilter = (req, res, next) => {
+        /*
+        Need to properly look into fomratting a backend
+        For now just doing a temp solution where can specficy field of child
+        */
+        console.log(req.query)
+
+        let field = req.query.field 
+
+        let element_name = this.element_name
+        this._MODEL.find({_id: req.params.id}).lean().populate('variations.value', field).exec(function(err, item) {
+            console.log(`Getting all ${element_name}`);
+            res.json(item);
+        })
+    };
+
+    getAllByFilter = (req, res, next) => {
+        /*
+        Need to properly look into fomratting a backend
+        For now just doing a temp solution where can specficy field of child
+        */
+        console.log(req.query)
+
+        let field = req.query.field 
+        
+        let element_name = this.element_name
+        this._MODEL.find().lean().populate('variations.value', field).exec(function(err, item) {
+            console.log(`Getting all ${element_name}`);
+            res.json(item);
+        })
+    };
+
     get1 = (req, res, next) => {
         let element_name = this.element_name
         this._MODEL.findById({_id: req.params.id}).populate({

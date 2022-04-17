@@ -28,6 +28,7 @@ module.exports = class {
     };
 
     get = (req, res, next) => {
+        console.log(req.query)
         let element_name = this.element_name
         this._MODEL.findById({_id: req.params.id}, function(err, item) {
             console.log(`Getting specfic ${element_name}`);

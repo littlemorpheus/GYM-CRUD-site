@@ -15,6 +15,50 @@ module.exports = class extends Control {
         this.add_one(req, res, next, workout)
     }
 
+    getByFilter = (req, res, next) => {
+        /*
+        Need to properly look into fomratting a backend
+        For now just doing a temp solution where can specficy field of child
+        */
+        console.log(req.query)
+
+        let field = req.query.field
+
+        let element_name = this.element_name
+        this._MODEL.findById({_id: req.params.id})
+        .lean()
+        .populate({
+            //Solution for Array of elements
+            path: 'sections',
+            populate: {
+                /* This is removing the attached Key */
+                path: 'variations.value',
+                model: 'Exercise'
+            }
+        })
+        .exec(function(err, item) {
+            console.log(`Getting all ${element_name}`);
+            console.log(item)
+            res.json(item);
+        })
+    };
+
+    getAllByFilter = (req, res, next) => {
+        /*
+        Need to properly look into fomratting a backend
+        For now just doing a temp solution where can specficy field of child
+        */
+        console.log(req.query)
+
+        let field = req.query.field 
+
+        let element_name = this.element_name
+        this._MODEL.find().lean().populate('sections', field).exec(function(err, item) {
+            console.log(`Getting all ${element_name}`);
+            res.json(item);
+        })
+    };
+
     get1 = (req, res, next) => {
         let element_name = this.element_name
         this._MODEL.findById({_id: req.params.id}).populate({
