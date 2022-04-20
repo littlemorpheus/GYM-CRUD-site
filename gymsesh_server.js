@@ -32,7 +32,6 @@ app.use(express.static(path.join(__dirname, "/dist/")));
 //Note: Not sure on the best way to perform API calls so using the HTTP library
             /*      GET     */ 
 app.get('*', function(req, res) {
-    console.log("Being sent")
     res.sendFile(path.join(__dirname, '/dist/index.html'));
 }); 
 
@@ -41,6 +40,6 @@ app.get('*', function(req, res) {
             /*      DELETE     */
 app.listen(port, hostname, () => {
     let date = new Date();
-    console.log(`Starting at ${new date.toDateString()} ${date.toTimeString()}/`);
+    console.log(`Starting at ${date.toDateString()} ${date.toTimeString()}`);
     console.log(`Server running at http://${hostname}:${port}/`);
   });

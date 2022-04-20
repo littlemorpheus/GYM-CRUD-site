@@ -46,6 +46,4 @@ userSchema.methods.comparePassword = function(enterd_password, cb) {
         cb(null, match);
     })
 }
-
-console.log(CLIENT_DB)
 const User = module.exports = CLIENT_DB.model('user', userSchema);
