@@ -40,5 +40,7 @@ app.get('*', function(req, res) {
             /*      PUT     */
             /*      DELETE     */
 app.listen(port, hostname, () => {
+    let date = new Date();
+    console.log(`Starting at ${new date.toDateString()} ${date.toTimeString()}/`);
     console.log(`Server running at http://${hostname}:${port}/`);
   });
